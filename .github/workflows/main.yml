@@ -3,7 +3,7 @@ name: "Daily Fudan"
 on:
   schedule:
     - cron: "0 2 * * *"  # scheduled at 06:00 (UTC+8) everyday
-  workflow_dispatch:
+    workflow_dispatch:
 
 env:
   # auto merge from y1ndan/genshin-impact-helper, default: false
@@ -22,7 +22,7 @@ jobs:
         with:
           fetch-depth: 0
           ref: master
-
+    
       - name: Auto merge
         if: ${{ env.ALLOW_MERGE != 'false' }}
         run: |
@@ -33,11 +33,11 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: 3.8
-
+    
       - name: Random sleep
         if: github.event_name == 'schedule'
         run: sleep $(shuf -i 10-300 -n 1)
-
+    
       - name: Run sign
         run: |
           python -m pip install --upgrade pip
