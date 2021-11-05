@@ -2,8 +2,8 @@ name: "Daily Fudan"
 
 on:
   schedule:
-    - cron: "0 2 * * *"  # scheduled at 06:00 (UTC+8) everyday
-    workflow_dispatch:
+    - cron: "0 2 * * *"  # scheduled at 10:00 (UTC+8) everyday
+  workflow_dispatch:
 
 env:
   # auto merge from y1ndan/genshin-impact-helper, default: false
